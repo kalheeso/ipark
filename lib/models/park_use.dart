@@ -1,22 +1,27 @@
 import 'package:json_annotation/json_annotation.dart';
 
-// part 'park_use.g.dart';
+part 'park_use.g.dart';
 
-// @JsonSerializable(explicitToJson: true)
-// class ParkUse {
-//   @JsonKey(name: 'username')
-//   final String? username;
-//   @JsonKey(name: 'apelido')
-//   final String? apelido;
-//   @JsonKey(name: 'nome_completo')
-//   final String? nome;
-//   @JsonKey(name: 'email')
-//   final String? email;
-  
+@JsonSerializable(explicitToJson: true)
+class ParkUse {
+  @JsonKey(name: 'placa')
+  String placa;
+  @JsonKey(name: 'valor_total')
+  double valorTotal;
+  @JsonKey(name: 'nome_estabelecimento')
+  String nomeEstabelecimento;
+  @JsonKey(name: 'horas_estacionado')
+  double horasEstacionado;
 
-//   const User({this.username, this.apelido, this.nome, this.email});
+  ParkUse({
+    required this.placa,
+    required this.valorTotal,
+    required this.nomeEstabelecimento,
+    required this.horasEstacionado,
+  });
 
-//   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory ParkUse.fromJson(Map<String, dynamic> json) =>
+      _$ParkUseFromJson(json);
 
-//   Map<String, dynamic> toJson() => _$UserToJson(this);
-// }
+  Map<String, dynamic> toJson() => _$ParkUseToJson(this);
+}

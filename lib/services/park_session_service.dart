@@ -1,14 +1,15 @@
 
 import 'package:dio/dio.dart';
+import 'package:ipark/models/park_session.dart';
 
-class UserServices {
+class ParkSessionService {
 
-  // Future<User> getUserById(int id) async {
-  //   try {
-  //     Response response = await Requester().dio.get(RequestRoutes.dadosUsuario(id));
-  //     return User.fromJson(response.data);
-  //   } catch (e) {
-  //     rethrow;
-  //   }
-  // }
+  Future<ParkSession> getCurrentSession({int idUsuario = 2}) async {
+    try {
+      Response response = await Dio().get('http://realbetis.software:8000/registro/sessao/$idUsuario');
+      return ParkSession.fromJson(response.data);
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

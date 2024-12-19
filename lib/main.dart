@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:ipark/controllers/park_history_controller.dart';
+import 'package:ipark/controllers/park_session_controller.dart';
 import 'package:ipark/pages/home_page.dart';
 
+void setupSingletons() {
+  GetIt.I.registerLazySingleton<ParkHistoryController>((() => ParkHistoryController()));
+  GetIt.I.registerLazySingleton<ParkSessionController>((() => ParkSessionController()));
+}
+
 void main() {
+  setupSingletons();
   runApp(const MyApp());
 }
 
